@@ -1,0 +1,23 @@
+{
+  "name": "astrazeneca-challenge",
+  "version": "1.0.0",
+  "description": "FullStack coding challenge ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AztraZeneca",
+    "FullStack",
+    "Challenge",
+    "React",
+    "Apollo",
+    "Docker"
+  ],
+  "author": "Alfredo Ochoa Lopez",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}
