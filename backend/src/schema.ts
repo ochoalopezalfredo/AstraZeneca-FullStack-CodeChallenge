@@ -1,13 +1,14 @@
 const typeDefs = `#graphql
   type Image {
-    image: String!
+    url: String
+    image: String
   }
 
   input ImageOptions {
     width: Int!
-    height: Int!
-    young: Boolean!
-    grayscale: Boolean!
+    height: Int
+    young: Boolean
+    grayscale: Boolean
   }
 
   type Query {
