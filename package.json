@@ -4,7 +4,7 @@
   "description": "FullStack coding challenge ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init:backend": "cd apps/backend && docker build -t keanu-frontend ."
   },
   "keywords": [
     "AztraZeneca",
@@ -17,7 +17,7 @@
   "author": "Alfredo Ochoa Lopez",
   "license": "ISC",
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "frontend",
+    "backend"
   ]
 }
