@@ -1,36 +1,37 @@
 import fetch from 'node-fetch';
+import { ImageOptions } from './types.js';
 
 export const resolvers = {
     Query: {
-        fetchImageUrl: async (_, { options }) => {
-            let { width, height, grayscale, young } = options;
-            if (!width) throw new Error('Parameter `width` missing');
-            const imageUrl = `https://placekeanu.com/${width}${height && `/${height}`}/${grayscale && 'g'}${young && 'y'}`;
-            const response = await fetch(imageUrl); // check if the image exist 
+        fetchImage: async (_, { options }) => {
+            const url = getUrl(options)
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Failed to fetch image');
             }
-
-            return { url: imageUrl }
-        },
-        /*
-        * process to demonstrate use of the resolver, otherwise the backend would have no logical function.
-        */
-        fetchImage: async (_, { options }) => { // only to use the backend , 
-            let { width, height, grayscale, young } = options;
-            if (!width) throw new Error('Parameter `width` missing');
-            const imageUrl = `https://placekeanu.com/${width}${height && `/${height}`}/${grayscale && 'g'}${young && 'y'}`;
-            const response = await fetch(imageUrl);// download the image if exist 
-            if (!response.ok) {
-                throw new Error('Failed to fetch image');
-            }
-
             const arrayBuffer = await response.arrayBuffer();
             const buffer = Buffer.from(arrayBuffer);
-            const base64Image = buffer.toString('base64');
-            return { image: base64Image };
+            const base64Data = buffer.toString('base64');
+            const mimeType = response.headers.get('content-type');
+            const image = `data:${mimeType};base64,${base64Data}`;
+
+            return { image, url };
         },
     },
 };
+
+const getUrl = (options: ImageOptions) => {
+    if (!options) throw new Error('Options missing');
+    let { width = null, height, grayscale, young } = options;
+    const params = []
+    params.push(width)
+    if (height) {
+        params.push(height)
+    }
+    params.push(`${grayscale ? 'g' : ''}${young ? 'y' : ''}`)
+
+    if (!width) throw new Error('Parameter `width` missing');
+    return `https://placekeanu.com/${params.join('/')}`;
+}
 
 export default resolvers;
