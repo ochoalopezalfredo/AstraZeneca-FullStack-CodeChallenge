@@ -1,19 +1,11 @@
 import { combineReducers } from 'redux';
-import { FETCH_IMAGE_FAILURE, FETCH_IMAGE_REQUEST, FETCH_IMAGE_SUCCESS, ImageActionTypes } from './actions';
+import { FETCH_IMAGE_FAILURE, FETCH_IMAGE_LOADING, FETCH_IMAGE_REQUEST, FETCH_IMAGE_SUCCESS, ImageActionTypes } from './actions';
+import { ImageState } from '../types';
 
-export type RootState = {
-    image: ImageState;
-};
-
-type ImageData = { image: string, url: string }
-
-export type ImageState = {
-    data: ImageData
-    error: string | null
-}
 const initialState: ImageState = {
-    data: { image: '', url: '' },
-    error: null
+    data: null,
+    error: null,
+    loading: false
 };
 
 const imageReducer = (state = initialState, action: ImageActionTypes) => {
@@ -24,6 +16,9 @@ const imageReducer = (state = initialState, action: ImageActionTypes) => {
             return { ...state, data: action.payload, error: null };
         case FETCH_IMAGE_FAILURE:
             return { ...state, error: action.payload };
+        case FETCH_IMAGE_LOADING:
+            return { ...state, loading: action.payload };
+
         default:
             return state;
     }
