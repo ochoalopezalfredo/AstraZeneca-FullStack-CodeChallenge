@@ -1,6 +1,5 @@
 
 import { ImageState } from "../types";
-import '../App.css'
 import { Box, Card, Image, Spinner, Text } from "@chakra-ui/react";
 export const ImageComponent = ({ error, data, loading }: ImageState) => {
 

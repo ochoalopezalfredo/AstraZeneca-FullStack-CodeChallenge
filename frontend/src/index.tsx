@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store'
 import { ApolloProvider } from '@apollo/client';
 import client from './graphql/client';
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,7 +16,9 @@ root.render(
   <ApolloProvider client={client}>
     <Provider store={store}>
       <ChakraProvider>
-        <App />
+        <Box bg="gray.200" minH="100vh">
+          <App />
+        </Box>
       </ChakraProvider>
     </Provider>
   </ApolloProvider>
