@@ -114,8 +114,8 @@ const App = () => {
             control={control}
             render={({ field }) =>
               <FormControl>
-                <Flex alignItems={'center'}>
-                  <FormLabel m={0} mr={10}>Square image</FormLabel>
+                <Flex alignItems={'center'} w={'150px'} justifyContent={'space-between'}>
+                  <FormLabel m={0}>Square image</FormLabel>
                   <Switch   {...field} />
                 </Flex>
               </FormControl>
@@ -126,7 +126,7 @@ const App = () => {
             control={control}
             render={({ field }) =>
               <FormControl>
-                <Flex alignItems={'center'}>
+                <Flex alignItems={'center'} w={'150px'} justifyContent={'space-between'}>
                   <FormLabel m={0} mr={10}>Grayscale</FormLabel>
                   <Switch   {...field} />
                 </Flex>
@@ -138,7 +138,7 @@ const App = () => {
             control={control}
             render={({ field }) =>
               <FormControl>
-                <Flex alignItems={'center'}>
+                <Flex alignItems={'center'} w={'150px'} justifyContent={'space-between'}>
                   <FormLabel m={0} mr={16}>Young </FormLabel>
                   <Switch  {...field} />
                 </Flex>
