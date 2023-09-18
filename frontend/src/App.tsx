@@ -23,10 +23,12 @@ const App = () => {
   const squareImage = watch('square');
 
   const onSubmit = ({ square, ...values }: FormData) => {
-    const params = values as unknown as ImageOptions
+    const params = values as unknown as ImageOptions //Fix the type from ui library
     if (squareImage) {
       params.height = undefined
     }
+    params.width = typeof params.width === 'string' ? +params.width : params.width;
+    params.height = params.height && typeof params.height === 'string' ? +params.height : params.height;
     dispatch(fetchImageRequest(params))
   }
 
