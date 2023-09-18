@@ -1,11 +1,17 @@
 
 import { ImageState } from "../types";
-import { Box, Card, Image, Spinner, Text } from "@chakra-ui/react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Card, Image, Spinner, Text } from "@chakra-ui/react";
 export const ImageComponent = ({ error, data, loading }: ImageState) => {
 
     return (
         <Box mt={10} >
-            {error && <Text size={'md'}  >Error: {error}</Text>}
+            {error &&
+                <Alert status='error'>
+                    <AlertIcon />
+                    <AlertTitle>Some error happen</AlertTitle>
+                    <AlertDescription>{error}</AlertDescription>
+                </Alert>
+            }
             {loading &&
                 <ImageContainer>
                     <Spinner
@@ -17,7 +23,7 @@ export const ImageComponent = ({ error, data, loading }: ImageState) => {
                     />
                 </ImageContainer>
             }
-            {data && !loading && (
+            {data && !loading && !error && (
                 <ImageContainer>
                     <Image objectFit={'contain'} src={data.image} alt='Keanu Reeves' />
                     <Text size={'sm'} color={'dimgray'} >Generated from: {data.url}</Text>
