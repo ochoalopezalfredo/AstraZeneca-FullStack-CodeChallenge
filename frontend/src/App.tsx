@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ImageComponent } from './components/image';
 import { fetchImageRequest } from './redux/actions';
 import { ImageOptions, RootState } from './types';
-import { Box, Button, Card, CardHeader, Center, Flex, FormControl, FormHelperText, FormLabel, Heading, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Spinner, Switch } from '@chakra-ui/react'
+import { Box, Button, Card, CardHeader, Center, Flex, FormControl, FormHelperText, FormLabel, Heading, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Switch } from '@chakra-ui/react'
 import { Divider } from '@chakra-ui/react'
 
 type FormData = {
