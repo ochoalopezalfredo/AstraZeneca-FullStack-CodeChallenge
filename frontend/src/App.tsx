@@ -16,9 +16,7 @@ const App = () => {
 
   const onSubmit = (values: ImageOptions) => {
     values.width = +values.width
-    if (values.height) {
-      values.height = +values.height
-    }
+    values.height = Number(values?.height) ?? values.width
     dispatch(fetchImageRequest(values))
   }
 
