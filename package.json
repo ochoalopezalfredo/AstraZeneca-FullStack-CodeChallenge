@@ -4,7 +4,8 @@
   "description": "FullStack coding challenge ",
   "main": "index.js",
   "scripts": {
-    "init:backend": "cd apps/backend && docker build -t keanu-frontend ."
+    "backend": "npm run start --workspace backend",
+    "frontend": "npm run start --workspace frontend"
   },
   "keywords": [
     "AztraZeneca",
@@ -15,7 +16,7 @@
     "Docker"
   ],
   "author": "Alfredo Ochoa Lopez",
-  "license": "ISC",
+  "license": "MIT",
   "workspaces": [
     "frontend",
     "backend"
