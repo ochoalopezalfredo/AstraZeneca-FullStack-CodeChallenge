@@ -10,9 +10,13 @@ const logger = (store: any) => (next: any) => (action: any) => {
     console.log(action)
 }
 
+const middlewares: any = [sagaMiddleware]
+if (process.env.NODE_ENV === 'development') {
+    middlewares.push(logger)
+}
 const store = createStore(
     rootReducer,
-    applyMiddleware(sagaMiddleware, logger)
+    applyMiddleware(...middlewares)
 );
 sagaMiddleware.run(rootSaga);
 
