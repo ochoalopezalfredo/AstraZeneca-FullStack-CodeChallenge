@@ -19,6 +19,7 @@ This web application allows users to retrieve images from [PlaceKeanu](https://p
 Before you begin, ensure you have met the following requirements:
 
 - [Docker](https://www.docker.com/) installed on your system.
+- [Docker Compose](https://docs.docker.com/compose/) installed on your system
 - [NodeJS](https://nodejs.org/en) installed on your system.
 - Ensure that port 3000 and port 4000 on your machine are not in use.
 ## Getting Started
