@@ -4,7 +4,8 @@
   "description": "FullStack coding challenge ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "backend": "npm run start --workspace backend",
+    "frontend": "npm run start --workspace frontend"
   },
   "keywords": [
     "AztraZeneca",
@@ -15,9 +16,9 @@
     "Docker"
   ],
   "author": "Alfredo Ochoa Lopez",
-  "license": "ISC",
+  "license": "MIT",
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "frontend",
+    "backend"
   ]
 }
