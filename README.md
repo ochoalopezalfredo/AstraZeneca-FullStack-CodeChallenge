@@ -27,9 +27,15 @@ Before you begin, ensure you have met the following requirements:
 To get the project up and running, follow these steps:
 
 ### Docker
-    Just run 
+Just run 
 
     `docker-compose up`
+
+or
+
+    `docker-compose up -d`
+
+if you want release the CLI and hide the servers logs 
 ### NodeJS
     - Rename the root file `file.env.local` to `.env.local`
     - on the CLI run 
@@ -58,7 +64,7 @@ backend
 │   └── types.ts        //Interfaces
 └── tsconfig.json       //Typescript config
 ``````
-- frontend: Contains the React frontend code.
+- Contains the React frontend code.
 ```
 frontend
 ├── Dockerfile          //Dockerize file
@@ -90,6 +96,3 @@ frontend
 
 ## License
 This project is licensed under the MIT License
-
-
-
